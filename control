@@ -1,0 +1,9 @@
+Package: com.user.mymocktweak
+Name: MyMockTweak
+Version: 0.1.0
+Architecture: iphoneos-arm
+Description: Generic iOS Mock Tweak (Photos / Location / Contacts) — hooks system framework APIs and lets the device owner choose what data other apps see. Own source, no third-party code reused.
+Maintainer: user
+Author: user
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader

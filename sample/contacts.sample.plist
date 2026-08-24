@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>identifier</key>
+		<string>fake-contact-1</string>
+		<key>givenName</key>
+		<string>张</string>
+		<key>familyName</key>
+		<string>三</string>
+		<key>phoneNumbers</key>
+		<array>
+			<dict>
+				<key>label</key>
+				<string>mobile</string>
+				<key>value</key>
+				<string>+86 138 0000 0001</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>identifier</key>
+		<string>fake-contact-2</string>
+		<key>givenName</key>
+		<string>李</string>
+		<key>familyName</key>
+		<string>四</string>
+		<key>phoneNumbers</key>
+		<array>
+			<dict>
+				<key>label</key>
+				<string>mobile</string>
+				<key>value</key>
+				<string>+86 138 0000 0002</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,16 @@
+# Theos build artifacts
+obj/
+packages/
+.theos/
+build/
+
+# Local theos checkout (when using in-tree SDK)
+theos/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp

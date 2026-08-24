@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key>
+	<string>MyMockTweak</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>相册 Mock</string>
+			<key>footerText</key>
+			<string>所有 App 通过 PHImageManager 拉相册图片时，会返回此处指定的本地图片。</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>enablePhotoMock</string>
+			<key>label</key>
+			<string>启用</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>mockImagePath</string>
+			<key>label</key>
+			<string>假图路径</string>
+			<key>placeholder</key>
+			<string>/var/mobile/mock.png</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>位置 Mock</string>
+			<key>footerText</key>
+			<string>所有 App 通过 CLLocationManager.location 同步读位置时，返回此处坐标。</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>enableLocationMock</string>
+			<key>label</key>
+			<string>启用</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>mockLatitude</string>
+			<key>label</key>
+			<string>纬度</string>
+			<key>keyboardType</key>
+			<string>NumbersAndPunctuation</string>
+			<key>placeholder</key>
+			<string>31.2304</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>mockLongitude</string>
+			<key>label</key>
+			<string>经度</string>
+			<key>keyboardType</key>
+			<string>NumbersAndPunctuation</string>
+			<key>placeholder</key>
+			<string>121.4737</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>通讯录 Mock</string>
+			<key>footerText</key>
+			<string>所有 App 通过 CNContactStore.unifiedContacts 读通讯录时，返回此 plist 指定的联系人。</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>enableContactsMock</string>
+			<key>label</key>
+			<string>启用</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>defaults</key>
+			<string>com.user.mymocktweak</string>
+			<key>key</key>
+			<string>mockContactsPath</string>
+			<key>label</key>
+			<string>plist 路径</string>
+			<key>placeholder</key>
+			<string>/var/mobile/contacts.plist</string>
+			<key>PostNotification</key>
+			<string>com.user.mymocktweak.settingschanged</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>关于</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSTitleValueCell</string>
+			<key>label</key>
+			<string>版本</string>
+			<key>value</key>
+			<string>0.1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
