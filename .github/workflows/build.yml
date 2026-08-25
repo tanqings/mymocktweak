@@ -16,15 +16,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            fakeroot dpkg-dev rsync perl curl pkg-config \
-            libssl-dev libplist-dev
-
-      - name: Build ldid from source
-        run: |
-          git clone --recursive https://github.com/ProcursusTeam/ldid.git /tmp/ldid
-          make -C /tmp/ldid
-          sudo make -C /tmp/ldid install PREFIX=/usr/local
-          ldid -V 2>&1 || true
+            fakeroot dpkg-dev rsync perl curl pkg-config lzip
 
       - name: Clone Theos + SDKs
         run: |
@@ -32,6 +24,13 @@ jobs:
           rm -rf "$HOME/theos/sdks"
           git clone --depth 1 https://github.com/theos/sdks.git "$HOME/theos/sdks"
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
+
+      - name: Install Theos toolchain (sbingner/llvm-project)
+        run: |
+          mkdir -p "$HOME/theos/toolchain/linux/iphone"
+          curl -L -o /tmp/toolchain.tar.lzma https://github.com/sbingner/llvm-project/releases/download/v10.0.0-2/linux-ios-arm64e-clang-toolchain.tar.lzma
+          lzip -d -c /tmp/toolchain.tar.lzma | tar -xv -C "$HOME/theos/toolchain/linux/iphone"
+          ls "$HOME/theos/toolchain/linux/iphone/bin/clang" "$HOME/theos/toolchain/linux/iphone/bin/ldid"
 
       - name: Show available SDKs
         run: ls -1 "$HOME/theos/sdks/"
