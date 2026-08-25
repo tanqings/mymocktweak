@@ -10,20 +10,10 @@
 static NSString *const kPLMPrefsPath = @"/var/mobile/Library/Preferences/com.user.mymocktweak.plist";
 static NSString *const kPLMNotif     = @"com.user.mymocktweak.settingschanged";
 
-// 带缓存的 prefs 读取：首次 dispatch_once 加载，监听设置变更通知后刷新。
+// 直接读文件，无 cache。plist 读 <1ms 可接受；好处是无需 libc++ cxa_guard、
+// 设置一改下次取就生效、跨进程稳定。
 static NSDictionary *PLMPrefs(void) {
-    static NSDictionary *cached;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cached = [NSDictionary dictionaryWithContentsOfFile:kPLMPrefsPath] ?: @{};
-        [NSNotificationCenter.defaultCenter addObserverForName:kPLMNotif
-                                                          object:nil
-                                                           queue:nil
-                                                      usingBlock:^(NSNotification * _Nonnull n) {
-            cached = [NSDictionary dictionaryWithContentsOfFile:kPLMPrefsPath] ?: @{};
-        }];
-    });
-    return cached ?: @{};
+    return [NSDictionary dictionaryWithContentsOfFile:kPLMPrefsPath] ?: @{};
 }
 
 static BOOL PLMEnabled(NSString *key) {
