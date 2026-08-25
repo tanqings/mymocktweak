@@ -16,15 +16,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            fakeroot dpkg-dev rsync perl curl cmake build-essential \
+            fakeroot dpkg-dev rsync perl curl pkg-config \
             libssl-dev libplist-dev
 
       - name: Build ldid from source
         run: |
           git clone --recursive https://github.com/ProcursusTeam/ldid.git /tmp/ldid
-          cmake -S /tmp/ldid -B /tmp/ldid/build -DCMAKE_BUILD_TYPE=Release
-          cmake --build /tmp/ldid/build -j"$(nproc)"
-          sudo cmake --install /tmp/ldid/build
+          make -C /tmp/ldid
+          sudo make -C /tmp/ldid install PREFIX=/usr/local
           ldid -V 2>&1 || true
 
       - name: Clone Theos + SDKs
